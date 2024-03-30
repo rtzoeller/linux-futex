@@ -74,7 +74,11 @@ impl FutexCall {
 			self.val3,
 		) as i32;
 		if result == -1 {
-			Err(Error(*libc::__errno_location()))
+			#[cfg(target_os = "linux")]
+			let errno = *libc::__errno_location();
+			#[cfg(target_os = "android")]
+			let errno = *libc::__errno();
+			Err(Error(errno))
 		} else {
 			Ok(result)
 		}
