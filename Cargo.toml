@@ -8,7 +8,7 @@ license = "BSD-2-Clause"
 repository = "https://github.com/m-ou-se/linux-futex"
 readme = "README.md"
 keywords = ["linux", "futex"]
-categories = ["concurrency", "os::unix-apis"]
+categories = ["concurrency", "os::linux-apis"]
 
 [dependencies]
 libc = "0.2.132"
